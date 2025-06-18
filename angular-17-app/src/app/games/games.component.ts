@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-games',
   standalone: true,
   imports: [CommonModule],
   template: `
+  <h3>Los juegos favoritos de {{username}}</h3>
     <ul>
       @for (game of games; track game.id){
         <li>{{game.name}}</li>
@@ -15,6 +16,7 @@ import { Component } from '@angular/core';
   styleUrl: './games.component.scss'
 })
 export class GamesComponent {
+  @Input() username = "";
   games = [
     {
       id: 1,
